@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fake Instagram Account Detector</title>
+    <meta
+      name="description"
+      content="An advanced demo website to assess whether an Instagram account may be fake or suspicious."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+    <main class="page-shell">
+      <header class="hero">
+        <p class="eyebrow">Instagram safety insights</p>
+        <h1>Detect suspecious account modeled by praveen.</h1>
+        <p class="hero-copy">
+          This upgraded detector combines profile completeness, username patterns,
+          engagement quality, account age, and action freshness to give a stronger risk estimate.
+        </p>
+      </header>
+
+      <section class="card-grid">
+        <form id="analysis-form" class="panel form-panel">
+          <h2>Advanced profile analysis</h2>
+          <p class="panel-copy">
+            The model uses weighted signals that are more representative of modern profile behavior.
+          </p>
+
+          <label class="field">
+            <span>Has a profile photo?</span>
+            <select id="profilePhoto" name="profilePhoto" required>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Has a bio?</span>
+            <select id="bio" name="bio" required>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Full name present?</span>
+            <select id="fullName" name="fullName" required>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Website link present?</span>
+            <select id="website" name="website" required>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Username style</span>
+            <select id="usernameStyle" name="usernameStyle" required>
+              <option value="clean">Clean / natural</option>
+              <option value="number-heavy">Number-heavy</option>
+              <option value="random">Random / symbol-heavy</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Follower count</span>
+            <input id="followers" name="followers" type="number" min="0" value="1250" required />
+          </label>
+
+          <label class="field">
+            <span>Following count</span>
+            <input id="following" name="following" type="number" min="0" value="320" required />
+          </label>
+
+          <label class="field">
+            <span>Number of posts</span>
+            <input id="posts" name="posts" type="number" min="0" value="18" required />
+          </label>
+
+          <label class="field">
+            <span>Average likes per post</span>
+            <input id="likes" name="likes" type="number" min="0" value="84" required />
+          </label>
+
+          <label class="field">
+            <span>Average comments per post</span>
+            <input id="comments" name="comments" type="number" min="0" value="8" required />
+          </label>
+
+          <label class="field">
+            <span>Verified account?</span>
+            <select id="verified" name="verified" required>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Last activity (days ago)</span>
+            <input id="activity" name="activity" type="number" min="0" value="5" required />
+          </label>
+
+          <label class="field">
+            <span>Account age (months)</span>
+            <input id="ageMonths" name="ageMonths" type="number" min="0" value="24" required />
+          </label>
+
+          <label class="field">
+            <span>Account privacy</span>
+            <select id="privacy" name="privacy" required>
+              <option value="public">Public</option>
+              <option value="private">Private</option>
+            </select>
+          </label>
+
+          <button type="submit">Analyze account</button>
+        </form>
+
+        <section class="panel result-panel" aria-live="polite">
+          <div class="result-header">
+            <p class="eyebrow">Assessment</p>
+            <h2 id="result-title">Ready to review</h2>
+            <span class="model-pill">Hybrid weighted model</span>
+          </div>
+
+          <div class="score-card">
+            <div class="score-ring" id="score-ring">
+              <span id="score-value">0%</span>
+            </div>
+            <div>
+              <p class="score-label">Risk score</p>
+              <p id="result-summary" class="result-summary">
+                Enter account details to see how likely the profile is to be fake.
+              </p>
+            </div>
+          </div>
+
+          <ul id="reason-list" class="reason-list">
+            <li>Profile photo and bio help reveal authenticity.</li>
+            <li>Engagement and recency are strong signals.</li>
+            <li>High follower-to-following imbalance can be suspicious.</li>
+          </ul>
+        </section>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
